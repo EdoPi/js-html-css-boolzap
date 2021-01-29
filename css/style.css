@@ -10,9 +10,11 @@
   clear: both;
 }
 
+body{
+background: linear-gradient( #0D8F7D 20%, #D0D6D2 20% 100%);
+}
 
 .app-container{
-  border: 1px solid black;
   max-width: 1220px;
   min-width: 995px;
   height: 90vh;
@@ -24,7 +26,6 @@
 /* SIDEBAR*/
 
 .sidebar{
-  border: 1px solid black;
   width: 35%;
   height: 100%;
 }
@@ -50,29 +51,34 @@
   width: 100%;
   height: calc(100% - 230px);
   overflow: scroll;
-  background-color: orange;
+  background-color: white;
 }
-
-
-
 /* END SIDEBAR*/
 
 
 /* MAIN*/
 .main{
-  border: 1px solid black;
+
   width: 65%;
+}
+
+.top-box{
+  width: calc(100% - 2px);
+  height: 80px;
+  background-color: #E7E7E7;
+  border-left: 2px solid #ccc;
+
 }
 
 .main-box{
   width: 100%;
-  height: calc(100% - 90px);
-  border: 1px solid green;
+  height: calc(100% - 170px);
+  background-image: url("../img/mine.jpg");
 }
 
 .bottom-box{
   width: 100%;
   height: 90px;
-  background-color: red;
+  background-color: #F1EBE7;
 }
 /* END MAIN*/

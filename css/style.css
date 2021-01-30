@@ -180,13 +180,38 @@ background: linear-gradient( #0D8F7D 20%, #D0D6D2 20% 100%);
   width: 65%;
 }
 
+/* TOP BOX*/
 .top-box{
   width: calc(100% - 2px);
   height: 80px;
   background-color: #E7E7E7;
   border-left: 2px solid #ccc;
-
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+
+.top-box-left{
+  display: flex;
+  align-items: center;
+  width: 30%;
+  justify-content: space-around;
+}
+
+.name-top-box{
+  margin-bottom: 10px;
+}
+
+.top-box-right{
+  font-size: 20px;
+  color: #A7A8A5;
+  width: 20%;
+  display: flex;
+  justify-content: space-around;
+}
+/* END TOP BOX*/
+
+
 
 .main-box{
   width: 100%;

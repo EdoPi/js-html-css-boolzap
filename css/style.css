@@ -306,6 +306,9 @@ font-family: 'Lato', sans-serif;
  .vocal{
    color: #60686D;
    font-size: 30px;
+   width: 70px;
+   display: flex;
+   justify-content: center;
  }
  /*  END BOTTOM BOX */
 

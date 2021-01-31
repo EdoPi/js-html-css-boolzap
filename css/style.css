@@ -60,6 +60,10 @@ font-family: 'Lato', sans-serif;
   margin-left: 15px;
 }
 
+.user-left:hover{
+  cursor: pointer;
+}
+
 .user-left > img{
   margin-right: 15px;
 }
@@ -73,6 +77,11 @@ font-family: 'Lato', sans-serif;
   justify-content: space-between;
   align-items: center;
 }
+
+.user-right:hover{
+  cursor: pointer;
+}
+
 /* END USER-BAR*/
 
 
@@ -136,10 +145,10 @@ font-family: 'Lato', sans-serif;
   outline: none;
 }
 
-
-
-
 /* END SEARCH BAR*/
+
+
+
 
 /* CONTACT LIST*/
 .contact-list{
@@ -163,7 +172,8 @@ font-family: 'Lato', sans-serif;
 }
 
 .contact:hover{
-
+  cursor: pointer;
+  background-color: #E8E8E8;
 }
 /* END CONTACT LIST*/
 
@@ -177,7 +187,6 @@ font-family: 'Lato', sans-serif;
 
 /* MAIN*/
 .main{
-
   width: 65%;
 }
 
@@ -209,6 +218,15 @@ font-family: 'Lato', sans-serif;
   width: 20%;
   display: flex;
   justify-content: space-around;
+}
+
+.top-box-right:hover{
+  cursor:pointer
+}
+
+.access-top-box{
+  font-weight: 300;
+  color: #868D8F;
 }
 /* END TOP BOX*/
 
@@ -302,6 +320,9 @@ font-family: 'Lato', sans-serif;
   color: #60686D;
   font-size: 30px;
 }
+.icons:hover{
+  cursor: pointer;
+}
 
  .vocal{
    color: #60686D;
@@ -309,6 +330,9 @@ font-family: 'Lato', sans-serif;
    width: 70px;
    display: flex;
    justify-content: center;
+ }
+ .vocal:hover{
+   cursor:pointer;
  }
  /*  END BOTTOM BOX */
 

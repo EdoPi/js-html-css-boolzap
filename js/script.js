@@ -1,7 +1,7 @@
 var app = new Vue({
   el: '#root',
   data: {
-    activeClass: '',
+    chatText:'',
     activeConv:0,
     contacts: [
     	{
@@ -88,10 +88,8 @@ var app = new Vue({
     		],
     	},
     ],
-
-
-
   },
+
   methods:{
     whichConv: function(indexContacts){
 
@@ -99,7 +97,7 @@ var app = new Vue({
         console.log(this.activeConv);
     },
 
-    sentRecived: function(element){
+    sentReceived: function(element){
       if (element.status === 'sent') {
           return 'green-chat'
       }
@@ -107,6 +105,13 @@ var app = new Vue({
           return 'white-chat'
       }
     },
+    myNewMessage: function (){
+      this.contacts[this.activeConv].messages.push({
+        date:'',
+        text: this.chatText,
+        status: 'sent',
+      });
+    }
 
   }
 

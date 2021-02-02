@@ -89,10 +89,10 @@
 
           <div class="top-box">
             <div class="top-box-left">
-              <img class="avatar" src="img/avatar_5.jpg" alt="">
+              <img class="avatar" :src="'img/avatar'+contacts[activeConv].avatar+'.jpg'" alt="">
               <div class="text-top-box">
                 <div class="name-top-box">
-                  Michele
+                  {{contacts[activeConv].name}}
                 </div>
                 <div class="access-top-box">
                   Ultimo accesso oggi alle
@@ -110,13 +110,8 @@
 
           <div class="main-box  ">
             <div v-for="message in contacts[activeConv].messages" class="chat-container">
-              <div :class="sentRecived(message)">
+              <div :class="sentReceived(message)">
                 {{message.text}}
-              </div>
-            </div>
-            <div class="chat-container">
-              <div class="white-chat">
-                tutto bene e tu
               </div>
             </div>
           </div>
@@ -129,7 +124,7 @@
               <i class="far fa-smile"></i>
             </div>
             <div class="text-input">
-              <input type="text" name="" value="" placeholder="Scrivi un messaggio">
+              <input v-on:keyup.enter="myNewMessage" v-model="chatText"type="text" name="" value="" placeholder="Scrivi un messaggio">
             </div>
             <div class="vocal">
               <i class="fas fa-microphone"></i>

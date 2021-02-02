@@ -105,16 +105,46 @@ var app = new Vue({
           return 'white-chat'
       }
     },
+
     myNewMessage: function (){
       this.contacts[this.activeConv].messages.push({
         date:'',
         text: this.chatText,
         status: 'sent',
       });
-    }
+
+        setTimeout(function(){
+          this.contacts[this.activeConv].messages.push({
+            date:'',
+            text: 'ok',
+            status: 'received',
+          });
+
+        }, 1000);
+
+    }, // end myNewMessage function
+
+
 
   }
 
 });
+
+/*
+replyMessage: function(){
+
+  setTimeout(function(){
+    this.contacts[this.activeConv].messages.push({
+      date:'',
+      text: 'ok',
+      status: 'received',
+    });
+
+  }, 1000);
+}*/
+
+
+
+
 
 Vue.config.devtools = true;

@@ -1,7 +1,9 @@
 var app = new Vue({
   el: '#root',
   data: {
-        contacts: [
+    activeClass: '',
+    activeConv:0,
+    contacts: [
     	{
     		name: 'Michele',
     		avatar: '_1',
@@ -85,9 +87,28 @@ var app = new Vue({
     			}
     		],
     	},
-    ]
+    ],
+
+
 
   },
+  methods:{
+    whichConv: function(indexContacts){
+
+        return  this.activeConv =  indexContacts;
+        console.log(this.activeConv);
+    },
+
+    sentRecived: function(element){
+      if (element.status === 'sent') {
+          return 'green-chat'
+      }
+      if (element.status === 'received') {
+          return 'white-chat'
+      }
+    },
+
+  }
 
 });
 

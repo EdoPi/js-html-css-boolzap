@@ -65,7 +65,7 @@
 
 
           <div class="contact-list">
-            <div v-for="contact in contacts" class="contact">
+            <div v-for="(contact,index) in contacts" class="contact" @click="whichConv(index), sentRecived(index)">
               <img class="avatar" :src="'img/avatar' + contact.avatar + '.jpg'" alt="">
               <div class="info-contact">
                 <span>{{contact.name}}</span>
@@ -109,9 +109,9 @@
 
 
           <div class="main-box  ">
-            <div class="chat-container">
-              <div class="green-chat">
-                ciao come stai?
+            <div v-for="message in contacts[activeConv].messages" class="chat-container">
+              <div :class="sentRecived(message)">
+                {{message.text}}
               </div>
             </div>
             <div class="chat-container">

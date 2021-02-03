@@ -1,6 +1,7 @@
 var app = new Vue({
   el: '#root',
   data: {
+    searchText:'',
     chatText:'',
     activeConv:0,
     contacts: [
@@ -92,19 +93,15 @@ var app = new Vue({
 
   methods:{
     whichConv: function(indexContacts){
-
         return  this.activeConv =  indexContacts;
-        console.log(this.activeConv);
-    },
+    }, // end whichConv
 
     sentReceived: function(element){
       if (element.status === 'sent') {
           return 'green-chat'
       }
-      if (element.status === 'received') {
-          return 'white-chat'
-      }
-    },
+      return 'white-chat'
+    }, // end sentReceived
 
     myNewMessage: function (){
       this.contacts[this.activeConv].messages.push({
@@ -112,37 +109,29 @@ var app = new Vue({
         text: this.chatText,
         status: 'sent',
       });
-
-        setTimeout(function(){
-          this.contacts[this.activeConv].messages.push({
-            date:'',
+        let that = this;
+        setTimeout(function () {
+          that.contacts[that.activeConv].messages.push({
+            date:' 17/01/88',
             text: 'ok',
             status: 'received',
           });
-
         }, 1000);
-
     }, // end myNewMessage function
 
+    searchEngine: function(){
+      this.contacts.forEach((item, i) => {
+        const nameLower = item.name.toLowerCase();
+        const searchLower = this.searchText.toLowerCase();
+        item.visible = nameLower.startsWith(searchLower);
+      });
+    },// end searchEngine
 
+    
 
   }
 
 });
-
-/*
-replyMessage: function(){
-
-  setTimeout(function(){
-    this.contacts[this.activeConv].messages.push({
-      date:'',
-      text: 'ok',
-      status: 'received',
-    });
-
-  }, 1000);
-}*/
-
 
 
 

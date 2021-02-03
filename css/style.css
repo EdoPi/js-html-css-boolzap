@@ -254,6 +254,12 @@ font-family: 'Lato', sans-serif;
   padding: 7px;
 }
 
+/*
+.green-chat > span{
+  margin-right: 5px;
+}*/
+
+
 
 .green-chat:after{
   content: '';
@@ -286,7 +292,13 @@ font-family: 'Lato', sans-serif;
   left: -10px;
 }
 
-
+.date-message{
+  padding-left: 30px;
+  font-size: 10px;
+  padding-top: 15px;
+  float:right;
+  color: #6E7E64;
+}
 
 
 /* END MAIN*/

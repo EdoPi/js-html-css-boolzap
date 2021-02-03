@@ -58,14 +58,16 @@
           <div class="search-bar">
             <div class="input-container">
               <i class="fas fa-search"></i>
-              <input type="text" name="" value="" placeholder="Cerca o inizia una nuova chat">
+              <input @keyup="searchEngine" v-model="searchText" type="text" name=""
+              value="" placeholder="Cerca o inizia una nuova chat">
             </div>
           </div>
 
 
 
           <div class="contact-list">
-            <div v-for="(contact,index) in contacts" class="contact" @click="whichConv(index), sentRecived(index)">
+            <div  v-for="(contact,index) in contacts" class="contact"
+            @click="whichConv(index), sentReceived(index)" v-if="contact.visible">
               <img class="avatar" :src="'img/avatar' + contact.avatar + '.jpg'" alt="">
               <div class="info-contact">
                 <span>{{contact.name}}</span>
@@ -89,7 +91,8 @@
 
           <div class="top-box">
             <div class="top-box-left">
-              <img class="avatar" :src="'img/avatar'+contacts[activeConv].avatar+'.jpg'" alt="">
+              <img class="avatar" :src="'img/avatar'+contacts[activeConv].avatar+'.jpg'"
+              alt="">
               <div class="text-top-box">
                 <div class="name-top-box">
                   {{contacts[activeConv].name}}
@@ -111,7 +114,8 @@
           <div class="main-box  ">
             <div v-for="message in contacts[activeConv].messages" class="chat-container">
               <div :class="sentReceived(message)">
-                {{message.text}}
+                <span>{{message.text}}</span>
+                <div class="date-message">{{message.date}}</div>
               </div>
             </div>
           </div>
@@ -124,7 +128,8 @@
               <i class="far fa-smile"></i>
             </div>
             <div class="text-input">
-              <input v-on:keyup.enter="myNewMessage" v-model="chatText"type="text" name="" value="" placeholder="Scrivi un messaggio">
+              <input v-on:keyup.enter="myNewMessage" v-model="chatText"type="text"
+              name="" value="" placeholder="Scrivi un messaggio">
             </div>
             <div class="vocal">
               <i class="fas fa-microphone"></i>

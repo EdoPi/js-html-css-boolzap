@@ -105,14 +105,14 @@ var app = new Vue({
 
     myNewMessage: function (){
       this.contacts[this.activeConv].messages.push({
-        date:'',
+        date: this.dateGenerator(),
         text: this.chatText,
         status: 'sent',
       });
         let that = this;
         setTimeout(function () {
           that.contacts[that.activeConv].messages.push({
-            date:' 17/01/88',
+            date:that.dateGenerator(),
             text: 'ok',
             status: 'received',
           });
@@ -127,13 +127,30 @@ var app = new Vue({
       });
     },// end searchEngine
 
-    
+    dateGenerator: function(){
+      const actualDate = dayjs().format('DD-MM-YYYY HH:mm:ss');
+      return actualDate;
+    }, //end dateGenerator
+
+    lastAccess: function (index) {
+      const message = this.contacts[index].messages
+      const receivedFiltered = message.filter((element) => {
+        return element.status === 'received';
+      });
+      const lastOne = receivedFiltered.length - 1;
+      const lastDate = receivedFiltered[lastOne].date;
+      return lastDate;
+    }, // end lastAccess
+
+    onlyTime: function (indexConv, indexMess) {
+      const date = this.contacts[indexConv].messages[indexMess].date;
+      const arrayDate = date.split(" ");
+      const time = arrayDate[arrayDate.length -1] ;
+      return time;
+    },
 
   }
 
 });
-
-
-
 
 Vue.config.devtools = true;

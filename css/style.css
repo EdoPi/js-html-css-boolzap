@@ -204,8 +204,11 @@ font-family: 'Lato', sans-serif;
 .top-box-left{
   display: flex;
   align-items: center;
-  width: 30%;
-  justify-content: space-around;
+  width: 50%;
+}
+
+.top-box-left > img{
+  margin-left: 2px;
 }
 
 .name-top-box{
@@ -224,9 +227,18 @@ font-family: 'Lato', sans-serif;
   cursor:pointer
 }
 
+.text-top-box{
+  margin-left: 15px;
+}
+
 .access-top-box{
   font-weight: 300;
   color: #868D8F;
+  font-size: 12px;
+}
+
+.access-top-box > span {
+font-size: 11px;
 }
 /* END TOP BOX*/
 

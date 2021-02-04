@@ -6,6 +6,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <title></title>
   </head>
@@ -91,14 +92,14 @@
 
           <div class="top-box">
             <div class="top-box-left">
-              <img class="avatar" :src="'img/avatar'+contacts[activeConv].avatar+'.jpg'"
+              <img class="avatar" :src="'img/avatar'+ contacts[activeConv].avatar + '.jpg'"
               alt="">
               <div class="text-top-box">
                 <div class="name-top-box">
                   {{contacts[activeConv].name}}
                 </div>
                 <div class="access-top-box">
-                  Ultimo accesso oggi alle
+                  Ultimo accesso oggi alle <span>{{lastAccess(activeConv)}}</span>
                 </div>
               </div>
             </div>
@@ -112,10 +113,10 @@
 
 
           <div class="main-box  ">
-            <div v-for="message in contacts[activeConv].messages" class="chat-container">
+            <div v-for="(message, index) in contacts[activeConv].messages" class="chat-container">
               <div :class="sentReceived(message)">
                 <span>{{message.text}}</span>
-                <div class="date-message">{{message.date}}</div>
+                <div class="date-message">{{onlyTime(activeConv, index)}}</div>
               </div>
             </div>
           </div>

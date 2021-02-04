@@ -1,6 +1,7 @@
 var app = new Vue({
   el: '#root',
   data: {
+    isActive:false,
     searchText:'',
     chatText:'',
     activeConv:0,
@@ -149,8 +150,24 @@ var app = new Vue({
       return time;
     },
 
+    
+
+    toggleOptions: function(){
+        if (this.isActive) {
+          return 'active-message'
+        }
+        return ''
+    }, //end toggleOptions
+
+
+
   }
 
 });
 
 Vue.config.devtools = true;
+
+/*
+const element = document.getElementById("options").getElementsByTagName("div")[index].getElementByClassName("message-options")[0];
+element.classList.toggle("active");
+*/

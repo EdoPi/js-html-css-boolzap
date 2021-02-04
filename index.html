@@ -112,11 +112,18 @@
 
 
 
-          <div class="main-box  ">
-            <div v-for="(message, index) in contacts[activeConv].messages" class="chat-container">
+          <div id="options" class="main-box  ">
+            <div  v-for="(message, index) in contacts[activeConv].messages" class="chat-container">
               <div :class="sentReceived(message)">
                 <span>{{message.text}}</span>
                 <div class="date-message">{{onlyTime(activeConv, index)}}</div>
+                <i @click="isActive = !isActive" class="option-on fas fa-angle-down"></i>
+                <div :class="toggleOptions()" class="message-options" >
+                  <ul>
+                    <li>Message Info</li>
+                    <li>Delete message</li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
@@ -146,7 +153,9 @@
     </div>
     <!--      END WRAPPER     -->
 
-
+    const element = this.element[index];
+    if (element[index]) {
+      isActive
 
 
 
